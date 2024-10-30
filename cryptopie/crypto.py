@@ -6,7 +6,7 @@ AES_128_KEY_SIZE = 16
 AES_192_KEY_SIZE = 24
 AES_256_KEY_SIZE = 32
 
-class Crypto:
+class Cryptopie:
     def __init__(self, aes_key: Optional[str] = None, hmac_key: Optional[str] = None):
         self.AESKey = aes_key
         self.HMACKey = hmac_key

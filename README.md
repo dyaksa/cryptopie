@@ -1,4 +1,4 @@
-# go-encrypt
+# Python-encrypt
 
 This project focuses on encrypting Personally Identifiable Information (PII) using the Python programming language.
 
