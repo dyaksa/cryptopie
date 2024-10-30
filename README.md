@@ -16,8 +16,8 @@ pip install cryptopie
 The below example will print the contents:
 
 ```py
-from crypto import Crypto
-from crypto import AesAlg
+from cryptopie import Cryptopie
+from cryptopie import AesAlg
 
 crypto = Crypto(aes_key=aes_key, hmac_key=hmac_key)
 
