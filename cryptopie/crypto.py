@@ -1,6 +1,6 @@
 from typing import Optional
-from crypto.aesx import AESChiper, AesAlg
-from crypto.hmacx import HMACX
+from cryptopie.aesx import AESChiper, AesAlg
+from cryptopie.hmacx import HMACX
 
 AES_128_KEY_SIZE = 16
 AES_192_KEY_SIZE = 24
@@ -24,10 +24,18 @@ class Crypto:
     def encrypt(self, data: str, alg: AesAlg) -> str:
         aes_cipher = AESChiper(self.AESKey, data, alg)
         return aes_cipher.encrypt()
-
+    
+    def encrypt_static_iv(self, data: str, alg: AesAlg, iv: str) -> str:
+        aes_cipher = AESChiper(self.AESKey, data, alg, iv)
+        return aes_cipher.encrypt_static_iv()
+    
     def decrypt(self, encrypted_data: str, alg: AesAlg) -> str:
         aes_cipher = AESChiper(self.AESKey, '', alg)
         return aes_cipher.decrypt(encrypted_data)
+    
+    def decrypt_static_iv(self, encrypted_data: str, iv: str, alg: AesAlg) -> str:
+        aes_cipher = AESChiper(self.AESKey, '', alg, iv)
+        return aes_cipher.decrypt_static_iv(encrypted_data)
     
     def hash(self, data: str) -> str:
         hmac_instance = HMACX(self.HMACKey)
